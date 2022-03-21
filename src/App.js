@@ -9,6 +9,17 @@ export default class App extends React.Component {
       .then((json) => this.setState({ people: json.people }));
   }
 
+  peopleCards = (people) => {
+    return people.map((person, index) => {
+      return (
+        <li key={index}>
+          <h2>{person.name}</h2>
+          <i>{person.craft}</i>
+        </li>
+      );
+    });
+  };
+
   render() {
     return <ul>{this.peopleCards(this.state.people)}</ul>;
   }
